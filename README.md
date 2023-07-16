@@ -29,3 +29,8 @@ https://www.kaggle.com/datasets/crxxom/fifa2023-all-cards
 
 Rating에서는 선수들의 오버롤 능력치를 수치로 표현하고 있으며, PAC는 속력을, SHO는 슛을, PAS는 패스를, DRI는 드리블을, DEF는 수비를, PHY는 피지컬을 수치화하여 나타내고 있다.
 각각의 수치는 정수값이며, 최대값은 99이다.
+# 데이터 이해와 시각화
+![데이터 시각화_1](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/13be9e18-5247-43aa-b9c0-0e02fbd557ea)
+Figure1 분석:
+-	수비와 관련된 포지션(CB, RB, RWB, LB, LWB)일수록 수비 능력치가 높고 슈팅 능력치가 낮으며, 공격과 관련된 포지션(ST, RW, LW, CF)일수록 슈팅 능력치가 높고 수비 능력치가 낮다.
+-	미드필더(CAM, CM, RM, LM, CDM) 포지션은 공격 포지션과 수비 포지션 중간에 위치해 있다.
