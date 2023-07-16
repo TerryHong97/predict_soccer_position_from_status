@@ -32,20 +32,24 @@ Rating에서는 선수들의 오버롤 능력치를 수치로 표현하고 있�
 각각의 수치는 정수값이며, 최대값은 99이다.
 
 # 데이터 이해와 시각화
+
 ![데이터 시각화_1](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/13be9e18-5247-43aa-b9c0-0e02fbd557ea)
 Figure1 분석:
 -	수비와 관련된 포지션(CB, RB, RWB, LB, LWB)일수록 수비 능력치가 높고 슈팅 능력치가 낮으며, 공격과 관련된 포지션(ST, RW, LW, CF)일수록 슈팅 능력치가 높고 수비 능력치가 낮다.
 -	미드필더(CAM, CM, RM, LM, CDM) 포지션은 공격 포지션과 수비 포지션 중간에 위치해 있다.
+
 
 ![데이터 시각화_2](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/62513e91-243f-4b1f-b65c-71186ed24e52)
 Figure2 분석:
 -	수비 포지션일수록 속력과 패스 능력치가 모두 낮은 편에 속한다.
 -	미드필드와 공격 포지션은 속력과 패스 둘 다 높은 편에 속하지만, 대체로 미드필드 포지션이 공격 포지션보다 패스 능력치가 더 높고, 공격 포지션이 미드필드 포지션보다 속력 능력치가 더 높다.
 
+
 ![데이터 시각화_3](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/9bf822d2-81c7-4468-99ce-363e84a32486)
 Figure3 분석
 -	수비 포지션은 대체로 드리블 능력치는 낮지만 피지컬 능력치가 높은 편에 속한다.
 -	공격 포지션과 미드필드 포지션은 둘 다 드리블 능력치는 전반적으로 높은 편에 속하나 피지컬 능력치가 넓게 분포되어 있다. 
+
 
 Figure1, Figure2, Figure3 종합 분석
 -	공격과 미드필드, 수비 포지션은 각 포지션 별 능력치의 특징이 뚜렷하여 능력치 편차에 따라 대표 포지션을 어느정도 짐작할 수 있다.
@@ -53,9 +57,13 @@ Figure1, Figure2, Figure3 종합 분석
 
 # 데이터 이해를 바탕으로 한 데이터 분석 및 전처리
 ## 데이터 전처리 과정
+
 ![데이터 전처리_1](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/33f9f9a8-ffac-45b7-a428-6d6968848528)
+
 ![데이터 전처리_2](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/c8d6c6cc-65fa-4de7-aea4-a358681146fc)
+
 ![데이터 전처리_3](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/d1ae9485-2964-4cc6-9e45-7302c233db01)
+
 ## 전처리된 최종 데이터 분석
 14개의 범주로 되어 있던 타깃 데이터를 “FW”, “MF”, “DF” 세 개의 데이터로 묶어 표현하였다. 
 이를 통해 좀더 큰 틀에서의 포지션 성향을 반영한 학습이 진행될 것을 기대할 수 있다.
@@ -72,10 +80,15 @@ Figure1, Figure2, Figure3 종합 분석
 - 'max_depth' -> 트리의 깊이 제한
 - 'min_samples_split' -> 노드를 나누기 위한 최소 샘플 수
 - 'min_samples_leaf' -> 리프 노드가 되기 위한 최소 샘플 개수. 어떤 노드가 분할하여 만들어질 자식 노드의 샘플 수가 이 값보다 작을 경우 분할하지 않음
+
 ![랜덤 서치 및 결정 트리 분류_1](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/dce291f9-7420-4381-8553-52921debbe90)
+
 랜덤 서치를 위한 확률 분포 객체를 만들었으니 이를 기반으로 랜덤 서치 객체를 생성하여 훈련 데이터를 학습시킨다. 500회를 반복하여 하이퍼 파라미터를 랜덤으로 생성 후 학습 및 검증하는 과정을 통해 최적의 모델을 탐색한다.
+
 ![랜덤 서치 및 결정 트리 분류_2](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/6f021a8d-0c08-4a6c-be65-049b3ddf391d)
+
 ![랜덤 서치 및 결정 트리 분류_3](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/d2df5c90-08f4-4003-abc5-f0f734ddabd8)
+
 
 # 평가 방법 선택 및 결과 분석
 ## 모델 평가 방법에 대한 설명
