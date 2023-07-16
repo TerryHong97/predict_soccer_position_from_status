@@ -55,7 +55,7 @@ Figure1, Figure2, Figure3 종합 분석
 ## 데이터 전처리 과정
 ![데이터 전처리_1](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/33f9f9a8-ffac-45b7-a428-6d6968848528)
 ![데이터 전처리_2](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/c8d6c6cc-65fa-4de7-aea4-a358681146fc)
-![데이터 전처리_3](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580
+![데이터 전처리_3](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/d1ae9485-2964-4cc6-9e45-7302c233db01)
 ## 전처리된 최종 데이터 분석
 14개의 범주로 되어 있던 타깃 데이터를 “FW”, “MF”, “DF” 세 개의 데이터로 묶어 표현하였다. 
 이를 통해 좀더 큰 틀에서의 포지션 성향을 반영한 학습이 진행될 것을 기대할 수 있다.
@@ -73,7 +73,6 @@ Figure1, Figure2, Figure3 종합 분석
 - 'min_samples_split' -> 노드를 나누기 위한 최소 샘플 수
 - 'min_samples_leaf' -> 리프 노드가 되기 위한 최소 샘플 개수. 어떤 노드가 분할하여 만들어질 자식 노드의 샘플 수가 이 값보다 작을 경우 분할하지 않음
 ![랜덤 서치 및 결정 트리 분류_1](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/dce291f9-7420-4381-8553-52921debbe90)
-
 랜덤 서치를 위한 확률 분포 객체를 만들었으니 이를 기반으로 랜덤 서치 객체를 생성하여 훈련 데이터를 학습시킨다. 500회를 반복하여 하이퍼 파라미터를 랜덤으로 생성 후 학습 및 검증하는 과정을 통해 최적의 모델을 탐색한다.
 ![랜덤 서치 및 결정 트리 분류_2](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/6f021a8d-0c08-4a6c-be65-049b3ddf391d)
 ![랜덤 서치 및 결정 트리 분류_3](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/d2df5c90-08f4-4003-abc5-f0f734ddabd8)
@@ -82,9 +81,10 @@ Figure1, Figure2, Figure3 종합 분석
 ## 모델 평가 방법에 대한 설명
 랜덤 서치를 통해 찾아낸 최적의 모델을 테스트 데이터셋을 활용하여 score 메서드를 통해 정확도(accuracy)를 평가한다.
 ## 평가 방법에 사용된 코드
-랜덤 서치 객체를 통해 교차 검증이 진행되는데, 교차 검증의 점수들은 랜덤 서치 객체의 cv_results_ 속성에 저장된다. 또한 랜덤 서치를 통해 찾아낸 최적의 모델은 best_estimator_ 속성에 저장된다. 이들을 통해 훈련 점수와 테스트 점수를 알 수 있다.
-![모델 평가](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/e4f4586f-b657-45ee-ac3a-0af55421afd1)
-697/a46c4cc3-95af-4947-a72e-543370c3c9d0)
+랜덤 서치 객체를 통해 교차 검증이 진행되는데, 교차 검증의 점수들은 랜덤 서치 객체의 `cv_results_` 속성에 저장된다. 또한 랜덤 서치를 통해 찾아낸 최적의 모델은 `best_estimator_` 속성에 저장된다. 이들을 통해 훈련 점수와 테스트 점수를 알 수 있다.
+
+![모델 평가](https://github.com/TerryHong97/predict_soccer_position_from_status/assets/86580697/3c996e3b-9190-42a8-87c3-5a847a2ed318)
+
 ## 결과 분석
 훈련 점수는 약 0.8085, 테스트 점수는 약 0.8075가 나왔다.
 훈련 점수에 비해 테스트 점수가 약간 낮기 때문에, 과대적합으로 보기 어렵다.
